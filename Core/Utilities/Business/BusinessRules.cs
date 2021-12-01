@@ -1,4 +1,4 @@
-﻿using Core.Utilities.Results;
+﻿using Core.Utilities.Results.Abstract;
 
 namespace Core.Utilities.Business
 {

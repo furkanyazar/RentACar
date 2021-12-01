@@ -1,4 +1,6 @@
-﻿namespace Core.Utilities.Results
+﻿using Core.Utilities.Results.Abstract;
+
+namespace Core.Utilities.Results.Concrete
 {
     public class DataResult<T> : Result, IDataResult<T>
     {

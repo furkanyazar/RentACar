@@ -21,5 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Model> Models { get; set; }
         public DbSet<Traction> Tractions { get; set; }
         public DbSet<Transmission> Transmissions { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }

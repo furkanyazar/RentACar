@@ -2,7 +2,7 @@
 using Core.Utilities.Interceptors;
 using System.Transactions;
 
-namespace Core.Aspects.Transaction
+namespace Core.Aspects.Autofac.Transaction
 {
     public class TransactionScopeAspect : MethodInterception
     {

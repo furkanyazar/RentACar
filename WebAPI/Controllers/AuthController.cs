@@ -36,13 +36,51 @@ namespace WebAPI.Controllers
         [HttpPost("register")]
         public ActionResult Register(UserForRegisterDto userForRegisterDto)
         {
-            var userExists = _authService.UserExists(userForRegisterDto.Email);
+            var userExists = _authService.CheckIfUserExists(userForRegisterDto.Email);
             if (!userExists.Success)
             {
                 return BadRequest(userExists.Message);
             }
 
             var registerResult = _authService.Register(userForRegisterDto, userForRegisterDto.Password);
+            var result = _authService.CreateAccessToken(registerResult.Data);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("registerforcompany")]
+        public ActionResult RegisterForCompany(UserForRegisterForCompanyDto userForRegisterForCompanyDto)
+        {
+            var userExists = _authService.CheckIfUserExists(userForRegisterForCompanyDto.Email);
+            if (!userExists.Success)
+            {
+                return BadRequest(userExists.Message);
+            }
+
+            var registerResult = _authService.RegisterForCompany(userForRegisterForCompanyDto, userForRegisterForCompanyDto.Password);
+            var result = _authService.CreateAccessToken(registerResult.Data);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("registerforcustomer")]
+        public ActionResult RegisterForCustomer(UserForRegisterForCustomerDto userForRegisterForCustomerDto)
+        {
+            var userExists = _authService.CheckIfUserExists(userForRegisterForCustomerDto.Email);
+            if (!userExists.Success)
+            {
+                return BadRequest(userExists.Message);
+            }
+
+            var registerResult = _authService.RegisterForCustomer(userForRegisterForCustomerDto, userForRegisterForCustomerDto.Password);
             var result = _authService.CreateAccessToken(registerResult.Data);
             if (result.Success)
             {

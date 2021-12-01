@@ -70,5 +70,42 @@
         public static string TransmissionNameAlreadyExists = "Vites adı zaten mevcut";
         public static string EmptyTransmissionName = "Vites adı boş bırakılamaz";
         public static string InvalidTransmissionNameLength = "Vites adı çık kısa";
+
+        public static string OperationClaimAdded = "Yetki türü eklendi";
+        public static string OperationClaimUpdated = "Yetki türü güncellendi";
+        public static string OperationClaimDeleted = "Yetki türü silindi";
+        public static string OperationClaimsListed = "Yetki türleri listelendi";
+        public static string OperationClaimNameAlreadyExists = "Yetki adı zaten mevcut";
+        public static string EmptyOperationClaimName = "Yetki adı boş bırakılamaz";
+        public static string InvalidOperationClaimNameLength = "Yetki adı çık kısa";
+
+        public static string UserOperationClaimAdded = "Kullanıcı yetkisi eklendi";
+        public static string UserOperationClaimUpdated = "Kullanıcı yetkisi güncellendi";
+        public static string UserOperationClaimDeleted = "Kullanıcı yetkisi silindi";
+        public static string UserOperationClaimsListed = "Kullanıcı yetkileri listelendi";
+        public static string UserOperationClaimAlreadyExists = "Kullanıcı yetkisi zaten mevcut";
+        public static string EmptyUserId = "Kullanıcı boş bırakılamaz";
+        public static string EmptyOperationClaimId = "Yetki boş bırakılamaz";
+        public static string InvalidUserId = "Kullanıcı geçersiz";
+        public static string InvalidOperationClaimId = "Yetki geçersiz";
+
+        public static string CompanyAdded = "Şirket eklendi";
+        public static string CompanyUpdated = "Şirket güncellendi";
+        public static string CompanyDeleted = "Şirket silindi";
+        public static string CompaniesListed = "Şirketler listelendi";
+        public static string MersisNoAlreadyExists = "Mersis numarası zaten mevcut";
+        public static string EmptyAddress = "Adres boş bırakılamaz";
+        public static string EmptyCompanyName = "Şirket adı boş bırakılamaz";
+        public static string EmptyMersisNo = "Mersis numarası boş bırakılamaz";
+        public static string InvalidCompanyNameLength = "Şirket adı çok kısa";
+
+        public static string CustomerAdded = "Müşteri eklendi";
+        public static string CustomerUpdated = "Müşteri güncellendi";
+        public static string CustomerDeleted = "Müşteri silindi";
+        public static string CustomersListed = "Müşteriler listelendi";
+        public static string IDNoAlreadyExists = "Kimlik numarası zaten mevcut";
+        public static string EmptyIDNo = "Kimlik numarası boş bırakılamaz";
+        public static string EmptyDateOfBirth = "Doğum tarihi boş bırakılamaz";
+        public static string InvalidIDNoLength = "Kimlik numarası çok kısa";
     }
 }
