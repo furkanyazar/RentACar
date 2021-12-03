@@ -85,7 +85,6 @@ CREATE TABLE [dbo].[Cars]
 (
 	[CarId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [CompanyId] INT NOT NULL,
-    [BrandId] INT NOT NULL,
     [ModelId] INT NOT NULL,
     [FuelId] INT NOT NULL,
     [TransmissionId] INT NOT NULL,
@@ -95,9 +94,8 @@ CREATE TABLE [dbo].[Cars]
     [EngineSize] SMALLINT NOT NULL,
     [ModelYear] SMALLINT NOT NULL,
     [DailyPrice] DECIMAL NOT NULL,
-    [Description] VARCHAR(MAX) NOT NULL,
+    [Description] VARCHAR(MAX) NULL,
     CONSTRAINT [FK_Cars_CompanyId] FOREIGN KEY ([CompanyId]) REFERENCES [dbo].[Companies] ([CompanyId]),
-    CONSTRAINT [FK_Cars_BrandId] FOREIGN KEY ([BrandId]) REFERENCES [dbo].[Brands] ([BrandId]),
     CONSTRAINT [FK_Cars_ModelId] FOREIGN KEY ([ModelId]) REFERENCES [dbo].[Models] ([ModelId]),
     CONSTRAINT [FK_Cars_FuelId] FOREIGN KEY ([FuelId]) REFERENCES [dbo].[Fuels] ([FuelId]),
     CONSTRAINT [FK_Cars_TransmissionId] FOREIGN KEY ([TransmissionId]) REFERENCES [dbo].[Transmissions] ([TransmissionId]),

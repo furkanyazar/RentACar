@@ -3,6 +3,7 @@ using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Results.Abstract;
@@ -15,10 +16,12 @@ namespace Business.Concrete
     public class ModelManager : IModelService
     {
         private IModelDal _modelDal;
+        private ICarService _carService;
 
-        public ModelManager(IModelDal modelDal)
+        public ModelManager(IModelDal modelDal, ICarService carService)
         {
             _modelDal = modelDal;
+            _carService = carService;
         }
 
         [SecuredOperation("admin")]
@@ -38,10 +41,16 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ModelAdded);
         }
 
+        [TransactionScopeAspect]
         [SecuredOperation("admin")]
         [CacheRemoveAspect("IModelService.Get")]
         public IResult Delete(Model model)
         {
+            foreach (var item in _carService.GetAllByModelId(model.ModelId).Data)
+            {
+                _carService.Delete(item);
+            }
+
             _modelDal.Delete(model);
 
             return new SuccessResult(Messages.ModelDeleted);

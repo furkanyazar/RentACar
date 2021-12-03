@@ -18,13 +18,17 @@ namespace Business.Concrete
         private IUserService _userService;
         private ICompanyService _companyService;
         private ICustomerService _customerService;
+        private IOperationClaimService _operationClaimService;
+        private IUserOperationClaimService _userOperationClaimService;
         private ITokenHelper _tokenHelper;
 
-        public AuthManager(IUserService userService, ICompanyService companyService, ICustomerService customerService, ITokenHelper tokenHelper)
+        public AuthManager(IUserService userService, ICompanyService companyService, ICustomerService customerService, IOperationClaimService operationClaimService, IUserOperationClaimService userOperationClaimService, ITokenHelper tokenHelper)
         {
             _userService = userService;
             _companyService = companyService;
             _customerService = customerService;
+            _operationClaimService = operationClaimService;
+            _userOperationClaimService = userOperationClaimService;
             _tokenHelper = tokenHelper;
         }
 
@@ -71,6 +75,16 @@ namespace Business.Concrete
             _userService.Add(user);
 
             return new SuccessDataResult<User>(user, Messages.UserRegistered);
+        }
+
+        [TransactionScopeAspect]
+        public IDataResult<User> RegisterForAdmin(UserForRegisterDto userForRegisterDto, string password)
+        {
+            var result = Register(userForRegisterDto, password);
+
+            _userOperationClaimService.Add(new UserOperationClaim { UserId = result.Data.UserId, OperationClaimId = _operationClaimService.GetByName("admin").Data.OperationClaimId });
+
+            return new SuccessDataResult<User>(result.Data, Messages.UserRegistered);
         }
 
         [TransactionScopeAspect]

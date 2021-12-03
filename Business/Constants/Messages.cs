@@ -107,5 +107,51 @@
         public static string EmptyIDNo = "Kimlik numarası boş bırakılamaz";
         public static string EmptyDateOfBirth = "Doğum tarihi boş bırakılamaz";
         public static string InvalidIDNoLength = "Kimlik numarası çok kısa";
+
+        public static string CarAdded = "Araba eklendi";
+        public static string CarUpdated = "Araba güncellendi";
+        public static string CarDeleted = "Araba silindi";
+        public static string CarsListed = "Arabalar listelendi";
+        public static string EmptyBodyTypeId = "Kasa tipi boş bırakılamaz";
+        public static string EmptyCompanyId = "Şirket boş bırakılamaz";
+        public static string EmptyEngineSize = "Motor hacmi boş bırakılamaz";
+        public static string EmptyFuelId = "Yakıt tipi boş bırakılamaz";
+        public static string EmptyModelId = "Araba modeli boş bırakılamaz";
+        public static string EmptyModelYear = "Model yılı boş bırakılamaz";
+        public static string EmptySeats = "Koltuk sayısı boş bırakılamaz";
+        public static string EmptyTractionId = "Çekiş tipi boş bırakılamaz";
+        public static string EmptyTransmissionId = "Vites tipi boş bırakılamaz";
+        public static string EmptyDailyPrice = "Günlük ücret boş bırakılamaz";
+        public static string InvalidBodyType = "Kasa tipi geçersiz";
+        public static string InvalidCompany = "Şirket geçersiz";
+        public static string InvalidDailyPrice = "Günlük ücret geçersiz";
+        public static string InvalidEngineSize = "Motor hacmi geçersiz";
+        public static string InvalidFuel = "Yakıt tipi geçersiz";
+        public static string InvalidModel = "Araba modeli geçersiz";
+        public static string InvalidModelYear = "Model yılı geçersiz";
+        public static string InvalidSeats = "Koltuk sayısı geçersiz";
+        public static string InvalidTraction = "Çekiş tipi geçersiz";
+        public static string InvalidTransmission = "Vites tipi geçersiz";
+
+        public static string CarImageAdded = "Fotoğraf eklendi";
+        public static string CarImageUpdated = "Fotoğraf güncellendi";
+        public static string CarImageDeleted = "Fotoğraf silindi";
+        public static string CarImagesListed = "Fotoğraflar listelendi";
+        public static string EmptyCarId = "Araba boş bırakılamaz";
+        public static string EmptyImagePath = "Fotoğraf yolu boş bırakılamaz";
+        public static string InvalidCarId = "Araba geçersiz";
+        public static string CarImageIsNotExists = "Fotoğraf mevcut değil";
+        public static string CarImageLimitExceeded = "Fotoğraf limitine ulaşıldı";
+
+        public static string RentalAdded = "Kiralama eklendi";
+        public static string RentalUpdated = "Kiralama güncellendi";
+        public static string RentalDeleted = "Kiralama silindi";
+        public static string RentalsListed = "Kiralamalar listelendi";
+        public static string EmptyCustomerId = "Müşteri boş bırakılamaz";
+        public static string EmptyRentDate = "Kiralama tarihi boş bırakılamaz";
+        public static string EmptyReturnDate = "Teslim tarihi boş bırakılamaz";
+        public static string InvalidCustomerId = "Müşteri geçersiz";
+        public static string InvalidRentDate = "Kiralama tarihi geçersiz";
+        public static string InvalidReturnDate = "Teslim tarihi geçersiz";
     }
 }

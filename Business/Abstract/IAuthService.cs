@@ -9,6 +9,8 @@ namespace Business.Abstract
     {
         IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password);
 
+        IDataResult<User> RegisterForAdmin(UserForRegisterDto userForRegisterDto, string password);
+
         IDataResult<User> RegisterForCompany(UserForRegisterForCompanyDto userForRegisterForCompanyDto, string password);
 
         IDataResult<User> RegisterForCustomer(UserForRegisterForCustomerDto userForRegisterForCustomerDto, string password);
