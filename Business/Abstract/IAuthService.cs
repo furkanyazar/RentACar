@@ -7,7 +7,7 @@ namespace Business.Abstract
 {
     public interface IAuthService
     {
-        IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password);
+        IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password, bool status);
 
         IDataResult<User> RegisterForAdmin(UserForRegisterDto userForRegisterDto, string password);
 

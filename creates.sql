@@ -4,6 +4,12 @@
     [BrandName] VARCHAR(50) NOT NULL
 )
 
+CREATE TABLE [dbo].[Cities]
+(
+	[CityId] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [CityName] VARCHAR(50) NOT NULL
+)
+
 CREATE TABLE [dbo].[Fuels]
 (
 	[FuelId] INT NOT NULL PRIMARY KEY IDENTITY, 
@@ -36,7 +42,8 @@ CREATE TABLE [dbo].[Users]
     [Email] VARCHAR(50) NOT NULL,
     [PhoneNumber] VARCHAR(20) NOT NULL,
     [PasswordHash] VARBINARY(500) NOT NULL,
-    [PasswordSalt] VARBINARY(500) NOT NULL
+    [PasswordSalt] VARBINARY(500) NOT NULL,
+    [Status] BIT NOT NULL
 )
 
 CREATE TABLE [dbo].[OperationClaims]
@@ -66,10 +73,12 @@ CREATE TABLE [dbo].[Companies]
 (
 	[CompanyId] INT NOT NULL PRIMARY KEY IDENTITY, 
     [UserId] INT NOT NULL,
+    [CityId] INT NOT NULL,
     [CompanyName] VARCHAR(50) NOT NULL,
     [Address] VARCHAR(MAX) NOT NULL,
     [MersisNo] VARCHAR(50) NOT NULL,
-    CONSTRAINT [FK_Companies_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([UserId])
+    CONSTRAINT [FK_Companies_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([UserId]),
+    CONSTRAINT [FK_Companies_CityId] FOREIGN KEY ([CityId]) REFERENCES [dbo].[Cities] ([CityId])
 )
 
 CREATE TABLE [dbo].[Customers]
@@ -79,6 +88,14 @@ CREATE TABLE [dbo].[Customers]
     [IDNo] VARCHAR(20) NOT NULL,
     [DateOfBirth] DATE NOT NULL,
     CONSTRAINT [FK_Customers_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([UserId])
+)
+
+CREATE TABLE [dbo].[Activations]
+(
+	[ActivationId] INT NOT NULL PRIMARY KEY IDENTITY, 
+	[UserId] INT NOT NULL, 
+    [ActivationCode] VARCHAR(50) NOT NULL, 
+    CONSTRAINT [FK_Activations_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users]([UserId])
 )
 
 CREATE TABLE [dbo].[Cars]

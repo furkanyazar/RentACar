@@ -10,6 +10,8 @@ namespace Business.ValidationRules.FluentValidation
         {
             RuleFor(c => c.UserId).NotEmpty().WithMessage(Messages.EmptyUserId);
             RuleFor(c => c.UserId).GreaterThan(0).WithMessage(Messages.InvalidUserId);
+            RuleFor(c => c.CityId).NotEmpty().WithMessage(Messages.EmptyCityId);
+            RuleFor(c => c.CityId).GreaterThan(0).WithMessage(Messages.InvalidCityId);
             RuleFor(c => c.Address).NotEmpty().WithMessage(Messages.EmptyAddress);
             RuleFor(c => c.CompanyName).NotEmpty().WithMessage(Messages.EmptyCompanyName);
             RuleFor(c => c.CompanyName).MinimumLength(5).WithMessage(Messages.InvalidCompanyNameLength);

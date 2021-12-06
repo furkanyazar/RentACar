@@ -48,6 +48,12 @@ namespace Business.Concrete
                 return new ErrorDataResult<User>(Messages.UserNotFound);
             }
 
+            var userToCheckActivation = CheckIfUserISActivated(userForLoginDto.Email);
+            if (!userToCheckActivation.Success)
+            {
+                return new ErrorDataResult<User>(userToCheckActivation.Message);
+            }
+
             if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.Data.PasswordHash, userToCheck.Data.PasswordSalt))
             {
                 return new ErrorDataResult<User>(Messages.PasswordError);
@@ -57,7 +63,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserValidator))]
-        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
+        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password, bool status)
         {
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
@@ -69,7 +75,8 @@ namespace Business.Concrete
                 LastName = userForRegisterDto.LastName,
                 PhoneNumber = userForRegisterDto.PhoneNumber,
                 PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt
+                PasswordSalt = passwordSalt,
+                Status = status
             };
 
             _userService.Add(user);
@@ -80,7 +87,7 @@ namespace Business.Concrete
         [TransactionScopeAspect]
         public IDataResult<User> RegisterForAdmin(UserForRegisterDto userForRegisterDto, string password)
         {
-            var result = Register(userForRegisterDto, password);
+            var result = Register(userForRegisterDto, password, true);
 
             _userOperationClaimService.Add(new UserOperationClaim { UserId = result.Data.UserId, OperationClaimId = _operationClaimService.GetByName("admin").Data.OperationClaimId });
 
@@ -91,9 +98,9 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CompanyValidator))]
         public IDataResult<User> RegisterForCompany(UserForRegisterForCompanyDto userForRegisterForCompanyDto, string password)
         {
-            var result = Register(userForRegisterForCompanyDto, password);
+            var result = Register(userForRegisterForCompanyDto, password, false);
 
-            _companyService.Add(new Company { UserId = result.Data.UserId, CompanyName = userForRegisterForCompanyDto.CompanyName, Address = userForRegisterForCompanyDto.Address, MersisNo = userForRegisterForCompanyDto.MersisNo });
+            _companyService.Add(new Company { UserId = result.Data.UserId, CityId = userForRegisterForCompanyDto.CityId, CompanyName = userForRegisterForCompanyDto.CompanyName, Address = userForRegisterForCompanyDto.Address, MersisNo = userForRegisterForCompanyDto.MersisNo });
 
             return new SuccessDataResult<User>(result.Data, Messages.UserRegistered);
         }
@@ -102,7 +109,7 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CustomerValidator))]
         public IDataResult<User> RegisterForCustomer(UserForRegisterForCustomerDto userForRegisterForCustomerDto, string password)
         {
-            var result = Register(userForRegisterForCustomerDto, password);
+            var result = Register(userForRegisterForCustomerDto, password, false);
 
             _customerService.Add(new Customer { UserId = result.Data.UserId, DateOfBirth = userForRegisterForCustomerDto.DateOfBirth, IDNo = userForRegisterForCustomerDto.IDNo });
 
@@ -114,6 +121,11 @@ namespace Business.Concrete
             var result = _userService.GetByEmail(email).Data;
 
             return result != null ? new ErrorResult(Messages.UserAlreadyExists) : new SuccessResult();
+        }
+
+        private IResult CheckIfUserISActivated(string email)
+        {
+            return _userService.GetByEmail(email).Data.Status ? new SuccessResult() : new ErrorResult(Messages.UserIsNotActivated);
         }
     }
 }

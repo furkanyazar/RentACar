@@ -15,12 +15,14 @@ namespace Business.Concrete
     public class CustomerManager : ICustomerService
     {
         private ICustomerDal _customerDal;
+        private IActivationService _activationService;
         private IOperationClaimService _operationClaimService;
         private IUserOperationClaimService _userOperationClaimService;
 
-        public CustomerManager(ICustomerDal customerDal, IOperationClaimService operationClaimService, IUserOperationClaimService userOperationClaimService)
+        public CustomerManager(ICustomerDal customerDal, IActivationService activationService, IOperationClaimService operationClaimService, IUserOperationClaimService userOperationClaimService)
         {
             _customerDal = customerDal;
+            _activationService = activationService;
             _operationClaimService = operationClaimService;
             _userOperationClaimService = userOperationClaimService;
         }
@@ -36,6 +38,8 @@ namespace Business.Concrete
             }
 
             _customerDal.Add(customer);
+
+            _activationService.Add(new Activation { UserId = customer.UserId });
 
             _userOperationClaimService.Add(new UserOperationClaim { UserId = customer.UserId, OperationClaimId = _operationClaimService.GetByName("customer").Data.OperationClaimId });
 

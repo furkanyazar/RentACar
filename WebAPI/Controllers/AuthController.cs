@@ -42,11 +42,11 @@ namespace WebAPI.Controllers
                 return BadRequest(userExists.Message);
             }
 
-            var registerResult = _authService.RegisterForAdmin(userForRegisterDto, userForRegisterDto.Password);
-            var result = _authService.CreateAccessToken(registerResult.Data);
+            var result = _authService.RegisterForAdmin(userForRegisterDto, userForRegisterDto.Password);
+            //var result = _authService.CreateAccessToken(registerResult.Data);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Message);
             }
 
             return BadRequest(result.Message);
@@ -61,11 +61,11 @@ namespace WebAPI.Controllers
                 return BadRequest(userExists.Message);
             }
 
-            var registerResult = _authService.RegisterForCompany(userForRegisterForCompanyDto, userForRegisterForCompanyDto.Password);
-            var result = _authService.CreateAccessToken(registerResult.Data);
+            var result = _authService.RegisterForCompany(userForRegisterForCompanyDto, userForRegisterForCompanyDto.Password);
+            //var result = _authService.CreateAccessToken(registerResult.Data);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Message);
             }
 
             return BadRequest(result.Message);
@@ -80,11 +80,11 @@ namespace WebAPI.Controllers
                 return BadRequest(userExists.Message);
             }
 
-            var registerResult = _authService.RegisterForCustomer(userForRegisterForCustomerDto, userForRegisterForCustomerDto.Password);
-            var result = _authService.CreateAccessToken(registerResult.Data);
+            var result = _authService.RegisterForCustomer(userForRegisterForCustomerDto, userForRegisterForCustomerDto.Password);
+            //var result = _authService.CreateAccessToken(registerResult.Data);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Message);
             }
 
             return BadRequest(result.Message);

@@ -28,9 +28,21 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email), Messages.Success);
         }
 
+        public IDataResult<User> GetById(int userId)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u => u.UserId == userId), Messages.Success);
+        }
+
         public IDataResult<List<OperationClaim>> GetClaims(User user)
         {
             return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user), Messages.Success);
+        }
+
+        public IResult Update(User user)
+        {
+            _userDal.Update(user);
+
+            return new SuccessResult(Messages.UserUpdated);
         }
     }
 }

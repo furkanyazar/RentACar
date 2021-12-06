@@ -4,6 +4,10 @@ INSERT INTO BodyTypes(BodyTypeName) VALUES('Sedan')
 INSERT INTO BodyTypes(BodyTypeName) VALUES('Hatchback 3 kapı')
 INSERT INTO BodyTypes(BodyTypeName) VALUES('Hatchback 5 kapı')
 
+INSERT INTO Cities(CityName) VALUES('İstanbul')
+INSERT INTO Cities(CityName) VALUES('Ankara')
+INSERT INTO Cities(CityName) VALUES('İzmir')
+
 INSERT INTO Fuels(FuelName) VALUES('Benzin')
 INSERT INTO Fuels(FuelName) VALUES('Benzin & LPG')
 INSERT INTO Fuels(FuelName) VALUES('Dizel')

@@ -9,8 +9,12 @@
         public static string PasswordError = "Hatalı şifre";
         public static string SuccessfulLogin = "Giriş başarılı";
         public static string UserAlreadyExists = "Kullanıcı zaten mevcut";
+        public static string UserIsNotActivated = "Kullanıcı onaylanmadı";
         public static string AccessTokenCreated = "Giriş başarılı";
         public static string Success = "İşlem başarılı";
+        public static string UserUpdated = "Kullanıcı güncellendi";
+        public static string UserActivated = "Kullanıcı onaylandı";
+        public static string UserNotActivated = "Kullanıcı onaylanamadı";
 
         public static string EmptyEmailAddress = "E-posta adresi boş bırakılamaz";
         public static string EmptyPhoneNumber = "Telefon numarası boş bırakılamaz";
@@ -85,8 +89,10 @@
         public static string UserOperationClaimsListed = "Kullanıcı yetkileri listelendi";
         public static string UserOperationClaimAlreadyExists = "Kullanıcı yetkisi zaten mevcut";
         public static string EmptyUserId = "Kullanıcı boş bırakılamaz";
+        public static string EmptyCityId = "Şehir boş bırakılamaz";
         public static string EmptyOperationClaimId = "Yetki boş bırakılamaz";
         public static string InvalidUserId = "Kullanıcı geçersiz";
+        public static string InvalidCityId = "Şehir geçersiz";
         public static string InvalidOperationClaimId = "Yetki geçersiz";
 
         public static string CompanyAdded = "Şirket eklendi";
@@ -153,5 +159,20 @@
         public static string InvalidCustomerId = "Müşteri geçersiz";
         public static string InvalidRentDate = "Kiralama tarihi geçersiz";
         public static string InvalidReturnDate = "Teslim tarihi geçersiz";
+
+        public static string CityAdded = "Şehir eklendi";
+        public static string CityUpdated = "Şehir güncellendi";
+        public static string CityDeleted = "Şehir silindi";
+        public static string CitysListed = "Kasa tipleri listelendi";
+        public static string CityNameAlreadyExists = "Şehir adı zaten mevcut";
+        public static string EmptyCityName = "Şehir adı boş bırakılamaz";
+        public static string InvalidCityNameLength = "Şehir adı çok kısa";
+
+        public static string ActivationAdded = "Aktivasyon kodu eklendi";
+        public static string ActivationUpdated = "Aktivasyon kodu güncellendi";
+        public static string ActivationDeleted = "Aktivasyon kodu silindi";
+        public static string ActivationsListed = "Aktivasyon kodları listelendi";
+        public static string EmptyActivationCode = "Aktivasyon kodu boş bırakılamaz";
+        public static string InvalidActivationCodeLength = "Aktivasyon kodu çok kısa";
     }
 }
