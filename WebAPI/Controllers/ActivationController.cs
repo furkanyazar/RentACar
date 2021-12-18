@@ -93,10 +93,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("setisactivated")]
-        public IActionResult SetIsActivated(string email, string activationCode)
+        [HttpPost("setisactivatedforcustomer")]
+        public IActionResult SetIsActivatedForCustomer(string email, string activationCode)
         {
-            var result = _activationService.SetIsActivated(email, activationCode);
+            var result = _activationService.SetIsActivatedForCustomer(email, activationCode);
 
             if (result.Success)
             {

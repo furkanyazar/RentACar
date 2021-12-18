@@ -17,7 +17,7 @@ namespace Business.Abstract
 
         IResult Delete(Activation activation);
 
-        IResult SetIsActivated(string email, string activationCode);
+        IResult SetIsActivatedForCustomer(string email, string activationCode);
 
         IResult SetIsActivatedForCompany(int userId, bool isActivated);
     }

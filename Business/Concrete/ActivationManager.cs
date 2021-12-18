@@ -59,7 +59,7 @@ namespace Business.Concrete
         }
 
         [TransactionScopeAspect]
-        public IResult SetIsActivated(string email, string activationCode)
+        public IResult SetIsActivatedForCustomer(string email, string activationCode)
         {
             User user = _userService.GetByEmail(email).Data;
             Activation activation = GetByUserId(user.UserId).Data;

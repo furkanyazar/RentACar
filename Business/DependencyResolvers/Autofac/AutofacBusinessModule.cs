@@ -14,56 +14,56 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
-            builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
+            builder.RegisterType<UserManager>().As<IUserService>();
+            builder.RegisterType<EfUserDal>().As<IUserDal>();
 
-            builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
-            builder.RegisterType<JwtHelper>().As<ITokenHelper>().SingleInstance();
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
-            builder.RegisterType<BodyTypeManager>().As<IBodyTypeService>().SingleInstance();
-            builder.RegisterType<EfBodyTypeDal>().As<IBodyTypeDal>().SingleInstance();
+            builder.RegisterType<BodyTypeManager>().As<IBodyTypeService>();
+            builder.RegisterType<EfBodyTypeDal>().As<IBodyTypeDal>();
 
-            builder.RegisterType<BrandManager>().As<IBrandService>().SingleInstance();
-            builder.RegisterType<EfBrandDal>().As<IBrandDal>().SingleInstance();
+            builder.RegisterType<BrandManager>().As<IBrandService>();
+            builder.RegisterType<EfBrandDal>().As<IBrandDal>();
 
-            builder.RegisterType<FuelManager>().As<IFuelService>().SingleInstance();
-            builder.RegisterType<EfFuelDal>().As<IFuelDal>().SingleInstance();
+            builder.RegisterType<FuelManager>().As<IFuelService>();
+            builder.RegisterType<EfFuelDal>().As<IFuelDal>();
 
-            builder.RegisterType<ModelManager>().As<IModelService>().SingleInstance();
-            builder.RegisterType<EfModelDal>().As<IModelDal>().SingleInstance();
+            builder.RegisterType<ModelManager>().As<IModelService>();
+            builder.RegisterType<EfModelDal>().As<IModelDal>();
 
-            builder.RegisterType<TractionManager>().As<ITractionService>().SingleInstance();
-            builder.RegisterType<EfTractionDal>().As<ITractionDal>().SingleInstance();
+            builder.RegisterType<TractionManager>().As<ITractionService>();
+            builder.RegisterType<EfTractionDal>().As<ITractionDal>();
 
-            builder.RegisterType<TransmissionManager>().As<ITransmissionService>().SingleInstance();
-            builder.RegisterType<EfTransmissionDal>().As<ITransmissionDal>().SingleInstance();
+            builder.RegisterType<TransmissionManager>().As<ITransmissionService>();
+            builder.RegisterType<EfTransmissionDal>().As<ITransmissionDal>();
 
-            builder.RegisterType<OperationClaimManager>().As<IOperationClaimService>().SingleInstance();
-            builder.RegisterType<EfOperationClaimDal>().As<IOperationClaimDal>().SingleInstance();
+            builder.RegisterType<OperationClaimManager>().As<IOperationClaimService>();
+            builder.RegisterType<EfOperationClaimDal>().As<IOperationClaimDal>();
 
-            builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>().SingleInstance();
-            builder.RegisterType<EfUserOperationClaimDal>().As<IUserOperationClaimDal>().SingleInstance();
+            builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>();
+            builder.RegisterType<EfUserOperationClaimDal>().As<IUserOperationClaimDal>();
 
-            builder.RegisterType<CompanyManager>().As<ICompanyService>().SingleInstance();
-            builder.RegisterType<EfCompanyDal>().As<ICompanyDal>().SingleInstance();
+            builder.RegisterType<CompanyManager>().As<ICompanyService>();
+            builder.RegisterType<EfCompanyDal>().As<ICompanyDal>();
 
-            builder.RegisterType<CustomerManager>().As<ICustomerService>().SingleInstance();
-            builder.RegisterType<EfCustomerDal>().As<ICustomerDal>().SingleInstance();
+            builder.RegisterType<CustomerManager>().As<ICustomerService>();
+            builder.RegisterType<EfCustomerDal>().As<ICustomerDal>();
 
-            builder.RegisterType<CarManager>().As<ICarService>().SingleInstance();
-            builder.RegisterType<EfCarDal>().As<ICarDal>().SingleInstance();
+            builder.RegisterType<CarManager>().As<ICarService>();
+            builder.RegisterType<EfCarDal>().As<ICarDal>();
 
-            builder.RegisterType<CarImageManager>().As<ICarImageService>().SingleInstance();
-            builder.RegisterType<EfCarImageDal>().As<ICarImageDal>().SingleInstance();
+            builder.RegisterType<CarImageManager>().As<ICarImageService>();
+            builder.RegisterType<EfCarImageDal>().As<ICarImageDal>();
 
-            builder.RegisterType<RentalManager>().As<IRentalService>().SingleInstance();
-            builder.RegisterType<EfRentalDal>().As<IRentalDal>().SingleInstance();
+            builder.RegisterType<RentalManager>().As<IRentalService>();
+            builder.RegisterType<EfRentalDal>().As<IRentalDal>();
 
-            builder.RegisterType<CityManager>().As<ICityService>().SingleInstance();
-            builder.RegisterType<EfCityDal>().As<ICityDal>().SingleInstance();
+            builder.RegisterType<CityManager>().As<ICityService>();
+            builder.RegisterType<EfCityDal>().As<ICityDal>();
 
-            builder.RegisterType<ActivationManager>().As<IActivationService>().SingleInstance();
-            builder.RegisterType<EfActivationDal>().As<IActivationDal>().SingleInstance();
+            builder.RegisterType<ActivationManager>().As<IActivationService>();
+            builder.RegisterType<EfActivationDal>().As<IActivationDal>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
